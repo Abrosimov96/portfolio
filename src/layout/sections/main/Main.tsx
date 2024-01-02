@@ -8,8 +8,8 @@ export const Main = () => {
       <FlexWrapper justify="space-around" align="center">
         <div>
           <span>Hi There</span>
-          <h2>I am Anton Abrosimov</h2>
-          <h1>A Web Developer.</h1>
+          <NameTitle>I am Anton Abrosimov</NameTitle>
+          <MainTitle>A Web Developer.</MainTitle>
         </div>
         <Photo src={photo} alt="Photo" />
       </FlexWrapper>
@@ -27,3 +27,7 @@ const Photo = styled.img`
   height: 430px;
   object-fit: cover;
 `;
+
+const NameTitle = styled.h2``;
+
+const MainTitle = styled.h1``;
