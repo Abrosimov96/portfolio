@@ -1,24 +1,18 @@
 import styled from 'styled-components';
 
-export const Nav = () => {
+type NavPropsType = {
+  items: string[];
+};
+
+export const Nav = (props: NavPropsType) => {
   return (
     <StyledNav>
       <ul>
-        <li>
-          <a href="">Home</a>
-        </li>
-        <li>
-          <a href="">Skils</a>
-        </li>
-        <li>
-          <a href="">Works</a>
-        </li>
-        <li>
-          <a href="">Testimony</a>
-        </li>
-        <li>
-          <a href="">Contacts</a>
-        </li>
+        {props.items.map((item, index) => (
+          <li key={index}>
+            <a href="#">{item.toUpperCase()}</a>
+          </li>
+        ))}
       </ul>
     </StyledNav>
   );
@@ -28,5 +22,6 @@ const StyledNav = styled.nav`
   ul {
     display: flex;
     gap: 30px;
+    justify-content: center;
   }
 `;
