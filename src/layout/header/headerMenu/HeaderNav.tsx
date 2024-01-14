@@ -12,12 +12,12 @@ export const HeaderNav = (props: HeaderNavPropsType) => {
         {props.items.map((item, index) => (
           <ListItem key={index}>
             <Link href={`#${item}`}>
-              {item.toUpperCase()}
+              {item}
               <Mask>
-                <span>{item.toUpperCase()}</span>
+                <span>{item}</span>
               </Mask>
               <Mask>
-                <span>{item.toUpperCase()}</span>
+                <span>{item}</span>
               </Mask>
             </Link>
           </ListItem>
@@ -32,6 +32,10 @@ const StyledHeaderNav = styled.nav`
     display: flex;
     gap: 30px;
     justify-content: center;
+  }
+
+  @media ${theme.media.tablet} {
+    display: none;
   }
 `;
 

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FlexWrapper } from '../../componets/FlexWrapper';
 import { Icon } from '../../componets/icon/Icon';
+import { font } from '../../styles/Common';
 import { theme } from '../../styles/Theme';
 
 export const Footer = () => {
@@ -64,10 +65,16 @@ const SlyledFooter = styled.footer`
 `;
 
 const Name = styled.span`
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 22px;
-  font-weight: 700;
+  ${font({
+    family: "'Josefin Sans', sans-serif",
+    weight: 700,
+    Fmax: 22,
+    Fmin: 16,
+  })}
   letter-spacing: 3px;
+
+  @media ${theme.media.mobile} {
+  }
 `;
 
 const SocialList = styled.ul`
