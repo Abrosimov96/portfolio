@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link } from '../../../../componets/Link.styled';
+import { S } from '../Works_Styles';
 
 type WorksNavPropsType = {
   items: string[];
@@ -7,26 +7,14 @@ type WorksNavPropsType = {
 
 export const WorksNav = (props: WorksNavPropsType) => {
   return (
-    <StyledWorksNav>
+    <S.WorksNav>
       <ul>
         {props.items.map((item, index) => (
-          <ListItem key={index}>
+          <S.ListItem key={index}>
             <Link href={`#${item}`}>{item}</Link>
-          </ListItem>
+          </S.ListItem>
         ))}
       </ul>
-    </StyledWorksNav>
+    </S.WorksNav>
   );
 };
-
-const StyledWorksNav = styled.nav`
-  ul {
-    display: flex;
-    justify-content: space-between;
-    max-width: 352px;
-    width: 100%;
-    margin: 0 auto 40px;
-  }
-`;
-
-const ListItem = styled.li``;

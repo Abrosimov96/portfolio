@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import { useEffect, useState } from 'react';
 import { Container } from '../../componets/Container';
 import { FlexWrapper } from '../../componets/FlexWrapper';
 import { Logo } from '../../componets/logo/Logo';
-import { HeaderNav } from './headerMenu/HeaderNav';
-import { MobileNav } from './mobileMenu/MobileNav';
+import { DesktopMenu } from './headerMenu/desktopMenu/DesktopMenu';
+import { MobileMenu } from './headerMenu/mobileMenu/MobileMenu';
+
+import { S } from './Header_Styles';
 
 const menuItems = [
   'Home',
@@ -13,26 +15,30 @@ const menuItems = [
   'Contacts',
 ];
 
-export const Header = () => {
+export const Header: React.FC = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakpoint = 768;
+
+  useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleWindowResize);
+
+    return () =>
+      window.removeEventListener('resize', handleWindowResize);
+  }, []);
+
   return (
-    <StyledHeader>
+    <S.Header>
       <Container>
         <FlexWrapper justify="space-between" align="center">
           <Logo />
-          <HeaderNav items={menuItems} />
-          <MobileNav items={menuItems} />
+          {width < breakpoint ? (
+            <MobileMenu items={menuItems} />
+          ) : (
+            <DesktopMenu items={menuItems} />
+          )}
         </FlexWrapper>
       </Container>
-    </StyledHeader>
+    </S.Header>
   );
 };
-
-const StyledHeader = styled.header`
-  background-color: rgba(31, 31, 32, 0.9);
-  padding: 20px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99999;
-`;

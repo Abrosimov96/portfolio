@@ -6,9 +6,9 @@ import { IconWrapper } from '../../../componets/IconWrapper.styled';
 import { SectionTitle } from '../../../componets/SectionTitle';
 import { Slider } from '../../../componets/slider/Slider';
 
-export const Testimony = () => {
+export const Testimony: React.FC = () => {
   return (
-    <StykedTestimone>
+    <StyledTestimony>
       <Container>
         <SectionTitle>Testimony</SectionTitle>
         <FlexWrapper direction="column" align={'center'}>
@@ -18,11 +18,11 @@ export const Testimony = () => {
           <Slider />
         </FlexWrapper>
       </Container>
-    </StykedTestimone>
+    </StyledTestimony>
   );
 };
 
-const StykedTestimone = styled.section`
+const StyledTestimony = styled.section`
   ${IconWrapper} {
     margin: 32px 0 72px;
   }
