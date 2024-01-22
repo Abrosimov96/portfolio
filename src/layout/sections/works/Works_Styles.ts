@@ -6,6 +6,7 @@ import { theme } from '../../../styles/Theme';
 
 // Works
 const Works = styled.section`
+  position: relative;
   ${FlexWrapper} {
     gap: 30px;
   }

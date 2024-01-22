@@ -90,6 +90,9 @@ const MainTitle = styled.h1`
     Fmax: 27,
     Fmin: 20,
   })}
+  p {
+    display: none;
+  }
 `;
 
 export const S = {

@@ -2,6 +2,8 @@ import photo from '../../../assets/images/photo.jpg';
 import { Container } from '../../../componets/Container';
 import { FlexWrapper } from '../../../componets/FlexWrapper';
 import { S } from './Main_Styles';
+import Typewriter from 'typewriter-effect';
+import Tilt from 'react-parallax-tilt';
 
 export const Main: React.FC = () => {
   return (
@@ -16,11 +18,22 @@ export const Main: React.FC = () => {
             <S.NameTitle>
               I am <span>Anton Abrosimov</span>
             </S.NameTitle>
-            <S.MainTitle>A Web Developer.</S.MainTitle>
+            <S.MainTitle>
+              <p>A Web Developer.</p>
+              <Typewriter
+                options={{
+                  strings: ['A Web Developer.'],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </S.MainTitle>
           </div>
-          <S.PhotoWrapper>
-            <S.Photo src={photo} alt="Photo" />
-          </S.PhotoWrapper>
+          <Tilt>
+            <S.PhotoWrapper>
+              <S.Photo src={photo} alt="Photo" />
+            </S.PhotoWrapper>
+          </Tilt>
         </FlexWrapper>
       </Container>
     </S.Main>
